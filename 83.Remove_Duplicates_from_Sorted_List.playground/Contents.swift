@@ -20,7 +20,8 @@ class Solution {
         p.next = head!
         
         while p.next != nil {
-            if p.next?.val == p.val {
+            let next = p.next?.next
+            if (next?.val == p.next?.val) {
                 p.next = p.next?.next
             } else {
                 p = p.next!
