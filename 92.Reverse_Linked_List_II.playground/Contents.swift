@@ -1,4 +1,14 @@
-import UIKit
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public var val: Int
+ *     public var next: ListNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.next = nil
+ *     }
+ * }
+ */
 
 public class ListNode {
     public var val: Int
@@ -10,28 +20,37 @@ public class ListNode {
 }
 
 class Solution {
-    func partition(_ head: ListNode?, _ x: Int) -> ListNode? {
-        let dummy = ListNode(0)
-        let dummytwo = ListNode(0)
-        var p = dummy
-        var q = dummytwo
-        
-        var travel = head
-        
-        while travel != nil {
-            if travel!.val < x {
-                p.next = travel
-                p = p.next!
-            } else {
-                q.next = travel
-                q = q.next!
-            }
-            travel = travel?.next
+    func reverseBetween(_ head: ListNode?, _ m: Int, _ n: Int) -> ListNode? {
+        guard m < n else {
+            return head
+        }
+        var length = 1
+        var p = head
+        while p != nil {
+            p = p?.next
+            length += 1
+        }
+        if n > length && m < 1 {
+            return nil
         }
         
-        p.next = dummytwo.next
-        q.next = nil
+        let dummy: ListNode? = ListNode(0)
+        dummy?.next = head
         
-        return dummy.next
+        var prev = dummy
+        
+        for _ in 1 ..< m {
+            prev = prev?.next
+        }
+        
+        let cur = prev?.next
+        for _ in 0 ..< n - m {
+            let next = cur?.next
+            cur?.next = next?.next
+            next?.next = prev?.next
+            prev?.next = next
+        }
+        
+        return dummy?.next
     }
 }
