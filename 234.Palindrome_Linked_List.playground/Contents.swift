@@ -13,7 +13,7 @@ class Solution {
         let middle = findMiddle(head)
         var reverse = reverseList(middle)
         
-        while p?.next !== middle {
+        while p !== middle && reverse != nil {
             if p?.val != reverse?.val {
                 return false
             }
