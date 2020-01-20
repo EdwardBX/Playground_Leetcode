@@ -5,14 +5,14 @@ class Solution {
         guard nums.count > 1 else {
             return nums.count
         }
-        var lengthVar: Int = 1
-        for i in 1 ..< nums.count {
-            if (nums[i] != nums[i-1]) {
-                // 去重
-                nums[lengthVar] = nums[i]
-                lengthVar += 1
+        var i = 0
+        for j in 1 ..< nums.count {
+            if nums[j] != nums[i] {
+                i += 1
+                nums[i] = nums[j]
             }
         }
-        return lengthVar
+        
+        return i + 1
     }
 }
