@@ -16,6 +16,7 @@ class Solution {
         }
         
         var p = head
+        
         var length = 1
         while p?.next != nil {
             p = p?.next
