@@ -1,30 +1,16 @@
 import UIKit
 
 func firstUniqChar(_ s: String) -> Int {
-    var charDic = [Character : Int]()
-    var result = s.count
-    
-    for index in 0 ..< s.count {
-        let char = s[s.index(s.startIndex, offsetBy: index)]
-        if let value = charDic[char] {
-            charDic[char] = value + s.count
-        } else {
-            charDic[char] = index
+    var map = [Character: Int]()
+    for ch in s {
+        map[ch] = map[ch, default: 0] + 1
+    }
+    for (i, ch) in s.enumerated() {
+        if map[ch] == 1 {
+            return i
         }
     }
-
-    for key in charDic.keys {
-        if let value = charDic[key] {
-            if value < s.count && value < result {
-                result = value
-            }
-        }
-    }
-    
-    if result >= s.count {
-        return -1
-    }
-    return result
+    return -1
 }
 
 firstUniqChar("loveleetcode")
