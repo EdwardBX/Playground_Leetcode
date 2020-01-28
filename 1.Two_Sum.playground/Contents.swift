@@ -1,5 +1,3 @@
-import UIKit
-
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
         var result = [Int]()
@@ -18,3 +16,5 @@ class Solution {
         return result
     }
 }
+
+
