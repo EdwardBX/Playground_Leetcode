@@ -4,7 +4,7 @@ func threeSum(_ nums: [Int]) -> [[Int]] {
         return []
     }
     
-    var temp = nums.sorted()
+    let temp = nums.sorted()
     var result = [[Int]]()
     
     for i in 0 ..< nums.count - 2 {
