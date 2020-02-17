@@ -1,5 +1,5 @@
 func lengthOfLongestSubstring(_ s: String) -> Int {
-    var s = Array(s)
+    let s = Array(s)
     
     var recent = [Character: Int]()
     var longest = 0
