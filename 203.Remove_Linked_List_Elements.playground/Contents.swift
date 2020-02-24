@@ -11,7 +11,7 @@ class Solution {
     func removeElements(_ head: ListNode?, _ val: Int) -> ListNode? {
         let dummy = ListNode(0)
         
-        var p = dummy;
+        var p = dummy
         
         p.next = head
         
