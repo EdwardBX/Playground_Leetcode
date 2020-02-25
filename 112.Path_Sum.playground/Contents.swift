@@ -10,7 +10,7 @@ public class TreeNode {
 }
 
 func hasPathSum(_ root: TreeNode?, _ sum: Int) -> Bool {
-    if (root?.val == sum && !((root?.left) != nil) && !((root?.right) != nil)) {
+    if (root?.val == sum && (root?.left == nil) && (root?.right == nil)) {
         return true
     }
     if let value = root?.val {
